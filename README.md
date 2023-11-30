@@ -16,7 +16,7 @@ If not, take a step back and choose another approach.
 ```
 - `1`: not included in the result list, since it appears 3 times in the input list 
 - `2`: included in the result list, since it appears exactly once in the input list
-- `3`: not included in the result list, since it appears 3 times in the input list
+- `3`: not included in the result list, since it appears twice in the input list
 
 Some more examples:
 ```
