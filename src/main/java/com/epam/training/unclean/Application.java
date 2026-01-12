@@ -20,7 +20,7 @@ public class Application {
 
     }
 
-    // This code checks the even numbers in the array
+    // This code checks what numbers are unique in the array
     public static List<Integer> filter(List<Integer> inputList) {
         if (inputList == null) {
             throw new IllegalArgumentException("Argument cannot be null");
