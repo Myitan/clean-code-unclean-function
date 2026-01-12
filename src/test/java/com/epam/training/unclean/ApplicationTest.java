@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.jar.Attributes;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class ApplicationTest {
 
     private Application underTest = new Application();

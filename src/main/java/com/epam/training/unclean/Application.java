@@ -1,50 +1,40 @@
 package com.epam.training.unclean;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 
 public class Application {
 
     public static void main(String[] args) {
-        
-        Application app = new Application();
 
-        System.out.println(app.filter(List.of(1, 2, 1, 5, 3, 2, 2, 2, 2, 4, 2)));
-        System.out.println(app.filter(List.of(1, 2, 1, 2, 1, 2, 1, 2, 3)));
-        System.out.println(app.filter(List.of(1, 2, 1, 2, 1, 2, 1, 2)));
-        System.out.println(app.filter(List.of(0, 0, 0, 0)));
-        System.out.println(app.filter(List.of(1)));
-        System.out.println(app.filter(List.of()));
-        System.out.println(app.filter(null));
+        System.out.println(filter(List.of(1, 2, 1, 5, 3, 2, 2, 2, 2, 4, 2)));
+        System.out.println(filter(List.of(1, 2, 1, 2, 1, 2, 1, 2, 3)));
+        System.out.println(filter(List.of(1, 2, 1, 2, 1, 2, 1, 2)));
+        System.out.println(filter(List.of(0, 0, 0, 0)));
+        System.out.println(filter(List.of(1)));
+        System.out.println(filter(List.of()));
+        System.out.println(filter(null));
 
 
     }
 
     // This code checks the even numbers in the array
-    public static List<Integer> filter(List<? extends Integer> inputList) {
+    public static List<Integer> filter(List<Integer> inputList) {
         if (inputList == null) {
             throw new IllegalArgumentException("Argument cannot be null");
         }
-        List<Integer> array4 = new ArrayList<>();
-
-        int Idx1;
-        for (Idx1 = 0; Idx1 < inputList.size(); Idx1++) {
-            Integer Indexed = inputList.get(Idx1);
-            boolean l = false;
-            for (int index2 = 1; index2 < inputList.size() - 1; index2++) {
-                if (Idx1 == index2 - 1) {
-                    continue;
-                }
-                if (Indexed.equals(inputList.get(index2 - 1))) {
-                    l = true;
-                    break;
-                }
-            }
-            if (!l) {
-                array4.add(Indexed);
+        Map<Integer,Integer> freqMap = new HashMap<>();
+        for (Integer number: inputList){
+            freqMap.put(number,freqMap.getOrDefault(number,0)+1);
+        }
+        List<Integer> uniqueElements = new ArrayList<>();
+        for (Integer number: inputList){
+            if (freqMap.get(number) == 1){
+                uniqueElements.add(number);
             }
         }
-        return array4;
+        return uniqueElements;
     }
 }
